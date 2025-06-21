@@ -325,7 +325,7 @@ let elapsed = start_time.elapsed();
 #### **✅ Новый формат (блок-саммари):**
 ```rust
 /* RESEARCH SUMMARY:
- * Sources: docs.rs/std/time, Rust 1.87.0 documentation
+ * Sources: docs.rs/std/time, Rust 1.89.0 documentation
  * Key findings: Instant provides monotonic timing, Duration has precise formatting
  * Application: Using subsec_millis() for accurate timer display
  */
