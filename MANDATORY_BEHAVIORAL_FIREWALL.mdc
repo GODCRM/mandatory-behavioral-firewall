@@ -1,484 +1,568 @@
 ---
-description: PRIMARY BEHAVIORAL FIREWALL - Core agent behavior control system that filters every action before execution. Enforces mandatory research for code creation, protects critical project zones, ensures quality through progressive blocking and enhancement. First line of defense for code integrity.
+description: 
 globs: 
 alwaysApply: true
 ---
-<?xml version="1.0" encoding="UTF-8"?>
-
-<mandatory_behavioral_firewall version="2.01">
-    
-    <meta_principle>
-        <core_function>PROTECT CODE QUALITY + ENSURE COMPLETE INSTRUCTION EXECUTION</core_function>
-        <design_philosophy>
-            Base filters = EXECUTION PRIORITY - always work first, never blocked.
-            Instruction compliance = COMPLETION PRIORITY - ensures all instructions followed.
-            Universal application = Agent follows all rules.
-            Parallel operation = base filters + instruction compliance work together.
-        </design_philosophy>
-        <universal_scope>APPLIES UNIVERSALLY - NO EXCEPTIONS</universal_scope>
-    </meta_principle>
-
-    <!-- SECTION A: PRECISE TRIGGERS -->
-    <precise_triggers>
-        
-        <active_research_enforcement action="CATCH_AND_RESEARCH">
-            <purpose>Catch agent red-handed attempting code changes without research</purpose>
-            <exact_patterns>*.rs, *.toml, *.js, *.ts, *.wgsl, Cargo.toml, package.json</exact_patterns>
-            <tool_triggers>edit_file, search_replace targeting above patterns</tool_triggers>
-            <blocking_condition>BLOCK and FORCE research when no prior research evidence exists</blocking_condition>
-            <enforcement_logic>
-                1. INTERCEPT: Tool call attempting code modification
-                2. CHECK: Has research been conducted for this specific change?
-                3. BLOCK: If no research evidence found for the specific APIs/patterns being used
-                4. FORCE: Execute mandatory research before allowing modification
-                5. ENFORCE: Research summary MUST be automatically included in code file as comment
-                6. PROCEED: Only after research completed and evidence included in file content
-            </enforcement_logic>
-            <research_requirement>MANDATORY verification of APIs, patterns, best practices BEFORE modification</research_requirement>
-            <evidence_format>Research summary block at code beginning: /* RESEARCH SUMMARY: sources and key findings */</evidence_format>
-            <automatic_inclusion>Research summary MUST be automatically prepended to ALL code files during creation/modification</automatic_inclusion>
-            <file_creation_rule>When creating new code files: always include research summary as first comment block</file_creation_rule>
-            <chat_limitation>In chat show NOTHING beyond compliance audit - NO research summary, file notifications, code plans, hypotheses, or generated code</chat_limitation>
-            <context_preservation>All information available in created files, no chat noise needed</context_preservation>
-            <no_bypass>Cannot bypass - research is MANDATORY before any code change</no_bypass>
-        </active_research_enforcement>
-        
-        <build_commands action="MANDATORY_TECHCONTEXT_CHECK">
-            <universal_patterns>cargo, npm, yarn, docker, wasm-pack, build.sh, ./build.sh, deploy, make, mvn, gradle, dotnet build</universal_patterns>
-            <trigger_mechanism>ANY build/run command triggers mandatory techContext.md verification</trigger_mechanism>
-            <blocking_condition>BLOCK if techContext.md contains different specification</blocking_condition>
-            <compliance_requirement>MANDATORY use of EXACT commands from techContext.md</compliance_requirement>
-            <agent_responsibility>Agent must READ techContext.md and find correct command for the task</agent_responsibility>
-            <universal_application>Works for any project - agent discovers project-specific commands from techContext.md</universal_application>
-        </build_commands>
-        
-        <crate_mentions action="MANDATORY_DOCS_RS_VERSION_CHECK">
-            <rust_crates>bevy, axum, tokio, serde, wgpu, wasm-bindgen, wasm-pack, thiserror, astro, tower, dioxus, mcp, ANY_RUST_CRATE</rust_crates>
-            <blocking_condition>BLOCK any crate version claim without docs.rs verification</blocking_condition>
-            <mandatory_verification>web_search for "https://docs.rs/[crate_name] latest version"</mandatory_verification>
-            <no_exceptions>Each Rust crate gets docs.rs latest version check</no_exceptions>
-        </crate_mentions>
-        
-        <architectural_decisions action="MANDATORY_RESEARCH_BLOCK">
-            <patterns>architecture, system design, ECS, rendering, WASM, WebAssembly</patterns>
-            <blocking_condition>BLOCK architectural decisions without research evidence</blocking_condition>
-        </architectural_decisions>
-        
-       <mode_instruction_enforcement action="MANDATORY_INSTRUCTION_EXECUTION">
-            <trigger>Specific tool calls or actions that require instruction compliance verification</trigger>
-            <blocking_condition>BLOCK edit_file, run_terminal_cmd, search_replace when instructions incomplete</blocking_condition>
-            <instruction_sources>mode_specific_rule content + ALL fetch_rules content + ALL examples</instruction_sources>
-            <base_filters_integration>Base filters execute first, instruction compliance executes alongside without interference</base_filters_integration>
-            <reactive_procedure>
-                1. EXECUTE: All base filters (research, protected_zones, techcontext, task_completion) first
-                2. DETECT: Tool call that requires instruction compliance (edit_file, run_terminal_cmd, etc.)
-                3. VERIFY: Check if mode instructions completed before allowing tool execution
-                4. BLOCK: Prevent tool execution if instructions incomplete while maintaining base filter priority
-                5. REQUIRE: Completion of missing instructions before proceeding
-            </reactive_procedure>
-            <map_pattern_enforcement>
-                <critical_requirement>Patterns from maps are MANDATORY to follow EXACTLY</critical_requirement>
-                <map_reading_requirement>Read and follow loaded maps and instructions without skips</map_reading_requirement>
-                <pattern_compliance>Commands, formats, and procedures MUST match map specifications exactly</pattern_compliance>
-                <universal_enforcement>Apply universally regardless of context</universal_enforcement>
-                <completeness_verification>
-                    <all_steps_check>Verify steps from loaded maps executed</all_steps_check>
-                    <no_skips_allowed>BLOCK if any instruction step skipped</no_skips_allowed>
-                    <map_understanding>Agent must read and understand patterns from maps, not rely on hardcoded examples</map_understanding>
-                </completeness_verification>
-            </map_pattern_enforcement>
-            <universal_application>Applies universally without exceptions</universal_application>
-        </mode_instruction_enforcement>
-        
-        <proactive_research_correction action="PROACTIVE_CODE_CORRECTION">
-            <purpose>Correct agent-generated code from memory using research findings</purpose>
-            <trigger>WHEN agent generates code from memory/templates without fresh research</trigger>
-            <correction_process>
-                1. DETECT: Code generated from agent's memory/training
-                2. RESEARCH: Verify current APIs, best practices, latest versions
-                3. CORRECT: Update generated code based on research findings
-                4. ENHANCE: Apply discovered optimizations and improvements
-            </correction_process>
-            <memory_code_patterns>
-                - Standard library usage without version verification
-                - Framework patterns from training data
-                - API calls that may have changed
-                - Best practices that may be outdated
-            </memory_code_patterns>
-            <research_integration>Use latest research to enhance memory-based code generation</research_integration>
-        </proactive_research_correction>
-        
-        <proactive_instruction_gate action="MANDATORY_INSTRUCTION_AUDIT">
-            <trigger>Assistant message</trigger>
-            <blocking_condition>BLOCK until instruction status audit shown at message start</blocking_condition>
-            <base_filters_priority>Base filters (research, protected_zones, techcontext, task_completion) ALWAYS execute first and are NEVER blocked</base_filters_priority>
-            <execution_order>
-                1. EXECUTE: All base filters without any blocking
-                2. CHECK: If base filters require action, prioritize them over instruction audit
-                3. SHOW: Instruction status audit only AFTER base filters are satisfied
-                4. ENFORCE: Complete instruction compliance alongside base filter compliance
-            </execution_order>
-            <mandatory_format>
-                "INSTRUCTION STATUS AUDIT:
-                □ [instruction 1] - [COMPLETED/PENDING/IN-PROGRESS]
-                □ [instruction 2] - [COMPLETED/PENDING/IN-PROGRESS]
-                □ [instruction N] - [COMPLETED/PENDING/IN-PROGRESS]
-                OVERALL STATUS: [X/Y COMPLETED] - [READY TO PROCEED/BLOCKED]"
-            </mandatory_format>
-            <enforcement>Assistant message MUST start with compliance status audit showing what agent will do WHILE maintaining base filter priority</enforcement>
-            <mandatory_status_display>
-                "🔍 COMPLIANCE STATUS AUDIT:
-                • Current task: [what agent is about to do]
-                • Research requirements: [COMPLETED/REQUIRED/NOT_APPLICABLE]
-                • Instruction compliance: [IN_PROGRESS/COMPLETED/NOT_APPLICABLE]
-                • Protected zones: [COMPLIANT/VIOLATION_RISK]
-                STATUS: [READY_TO_PROCEED/BLOCKED] - [reason if blocked]"
-            </mandatory_status_display>
-            <integration_protocol>Works in conjunction with reactive mode_instruction_enforcement - proactive shows status, reactive blocks actions, both work alongside base filters</integration_protocol>
-            <cross_rule_validation>
-                <build_command_check>If instruction involves build commands, MUST validate against techContext.md BEFORE claiming completion</build_command_check>
-                <compliance_verification>Show compliance with applicable firewall rules for each instruction</compliance_verification>
-                <research_integration>If instruction involves code/architecture, research evidence goes to FILE only, not chat</research_integration>
-                <protected_zone_check>If instruction involves _code_base_/ access, MUST be marked as BLOCKED with explanation</protected_zone_check>
-                <compliance_matrix>
-                    <for_each_instruction>
-                        <check_research_requirement>MANDATORY if involves code/architecture</check_research_requirement>
-                        <check_techcontext_compliance>MANDATORY for build commands</check_techcontext_compliance>
-                        <check_protected_zones>MANDATORY for file operations</check_protected_zones>
-                    </for_each_instruction>
-                </compliance_matrix>
-            </cross_rule_validation>
-            <universal_application>Applies universally without exceptions</universal_application>
-            <automatic_pre_response_gate>
-                <trigger>Before assistant message</trigger>
-                <checks>
-                    1. Always → require compliance audit for message
-                    2. If code modification planned → research evidence goes to file only
-                    3. If build commands used → require techContext.md compliance check
-                    4. If instructions incomplete → block all tool calls
-                    5. If examples not followed exactly → block response
-                </checks>
-                <no_override>NO exceptions, NO bypasses</no_override>
-                <universal_activation>Activates for assistant messages without conditions</universal_activation>
-            </automatic_pre_response_gate>
-        </proactive_instruction_gate>
-        
-        <intra_message_guidance action="PREVENTIVE_REDIRECTION">
-            <core_principle>Messages must NEVER be interrupted, but MUST be guided to compliance within same message</core_principle>
-            <preventive_redirection>
-                <trigger>When rule violation detected during message execution</trigger>
-                <action>Redirect agent to compliant action within same message</action>
-                <no_interruption>NEVER stop or break message execution</no_interruption>
-                <completion_requirement>Complete all missing requirements in current message</completion_requirement>
-            </preventive_redirection>
-            <continuous_monitoring>
-                <scope>Monitor each action within message for compliance</scope>
-                <real_time_checks>
-                    1. Check instruction completeness before each tool call
-                    2. Verify command pattern compliance before execution
-                    3. Validate file operation permissions before proceeding
-                    4. Confirm research requirements before code modification
-                </real_time_checks>
-                <auto_guidance>Guide agent to correct path when deviation detected</auto_guidance>
-            </continuous_monitoring>
-            <auto_correction>
-                <missing_instructions>Automatically guide agent to complete missing requirements</missing_instructions>
-                <wrong_commands>Redirect to exact commands from maps when tool substitution detected</wrong_commands>
-                <memory_code_correction>Trigger proactive research to correct agent memory-based code</memory_code_correction>
-                <active_research_enforcement>Catch and force research when attempting code changes without evidence</active_research_enforcement>
-                <protected_zone_access>Block and redirect when _code_base_/ modification attempted</protected_zone_access>
-            </auto_correction>
-            <seamless_integration>
-                <principle>All corrections must appear as natural agent decision-making</principle>
-                <flow_preservation>Maintain message coherence and logical flow</flow_preservation>
-                <requirement_completion>Ensure all mode requirements completed within message</requirement_completion>
-            </seamless_integration>
-            <execution_priority>
-                <immediate_compliance>Apply corrections immediately when violations detected</immediate_compliance>
-                <requirement_fulfillment>Prioritize completing missing requirements over other actions</requirement_fulfillment>
-                <mode_adherence>Strict adherence to mode-specific instructions within message</mode_adherence>
-            </execution_priority>
-        </intra_message_guidance>
-        
-        <universal_protection_gate action="MANDATORY_UNIVERSAL_AUDIT">
-            <trigger>Assistant message</trigger>
-            <blocking_condition>BLOCK until compliance audit completed</blocking_condition>
-            <mandatory_checks>
-                1. Research evidence for any code modifications
-                2. Instruction compliance status if mode_specific_rule exists
-                3. TechContext.md compliance for build commands
-                4. Protected zone access prevention (_code_base_/)
-            </mandatory_checks>
-            <enforcement>NO assistant message can proceed without this audit</enforcement>
-            <universal_scope>Applies to contexts, modes, and specializations</universal_scope>
-        </universal_protection_gate>
-
-    </precise_triggers>
-
-    <!-- SECTION B: RESEARCH PROTOCOLS -->
-    <research_protocols>
-        
-        <priority_stack_research>
-            <rust_language priority="CRITICAL">
-                <attempt number="1" priority="OFFICIAL_BOOK">web_search for https://doc.rust-lang.org/book/</attempt>
-                <attempt number="2" priority="STANDARD_LIBRARY">web_search for https://doc.rust-lang.org/std/</attempt>
-                <attempt number="3" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: 'Rust'</attempt>
-                <attempt number="4" priority="GET_LIBRARY_DOCS">Use the found ID with mcp_context7_get-library-docs</attempt>
-            </rust_language>
-            <bevy_engine priority="CRITICAL">
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: 'Bevy'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use the found ID with mcp_context7_get-library-docs</attempt>
-                <attempt number="3" priority="BEVY_CHEATBOOK">web_search for https://bevy-cheatbook.github.io</attempt>
-            </bevy_engine>
-            <axum_framework priority="HIGH">
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: 'Axum'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use the found ID with mcp_context7_get-library-docs</attempt>
-            </axum_framework>
-            <tower_middleware priority="HIGH">
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: 'Tower'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use the found ID with mcp_context7_get-library-docs</attempt>
-            </tower_middleware>
-            <dioxus_ui priority="HIGH">
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: 'Dioxus'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use the found ID with mcp_context7_get-library-docs</attempt>
-            </dioxus_ui>
-            <tokio_async priority="HIGH">
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: 'Tokio'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use the found ID with mcp_context7_get-library-docs</attempt>
-            </tokio_async>
-            <serde_serialization priority="HIGH">
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: 'Serde'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use the found ID with mcp_context7_get-library-docs</attempt>
-            </serde_serialization>
-            <wgpu_graphics priority="HIGH">
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: 'wgpu'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use the found ID with mcp_context7_get-library-docs</attempt>
-            </wgpu_graphics>
-            <wasm_bindgen priority="HIGH">
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: 'wasm-bindgen'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use the found ID with mcp_context7_get-library-docs</attempt>
-            </wasm_bindgen>
-            <wgsl_shading_language priority="HIGH">
-                <attempt number="1" priority="OFFICIAL_SPEC">web_search for https://www.w3.org/TR/WGSL/ WebGPU Shading Language specification</attempt>
-                <attempt number="2" priority="WGPU_INTEGRATION">web_search for "WGSL wgpu Rust integration 2025 latest"</attempt>
-                <attempt number="3" priority="BEVY_WGSL_PATTERNS">web_search for "Bevy WGSL shader examples latest version"</attempt>
-            </wgsl_shading_language>
-            <astro_rust priority="CRITICAL">
-                <attempt number="1" priority="DIRECT_REQUEST">mcp_context7_get-library-docs with context7CompatibleLibraryID: '/saurvs/astro-rust'</attempt>
-                <attempt number="2" priority="FALLBACK_RESOLVE">If fails, mcp_context7_resolve-library-id with libraryName: 'Astro Rust' and retry</attempt>
-                <attempt number="3" priority="ASTRONOMICAL_CALCULATIONS">web_search for "Astro Rust astronomical calculations solar system 2025"</attempt>
-            </astro_rust>
-            <mcp_rust_sdk priority="MEDIUM">
-                <attempt number="1" priority="DIRECT_REQUEST">mcp_context7_get-library-docs with context7CompatibleLibraryID: '/modelcontextprotocol/rust-sdk'</attempt>
-                <attempt number="2" priority="FALLBACK_RESOLVE">If fails, mcp_context7_resolve-library-id with libraryName: 'Model Context Protocol Rust SDK' and retry</attempt>
-            </mcp_rust_sdk>
-            <webassembly_wasm priority="HIGH">
-                <attempt number="1" priority="CONTEXT7_FIRST">mcp_context7_resolve-library-id with libraryName: 'WebAssembly'</attempt>
-                <attempt number="2" priority="GET_CONTEXT7_DOCS">Use found ID with mcp_context7_get-library-docs</attempt>
-                <attempt number="3" priority="OFFICIAL_SPEC">web_search for https://webassembly.org/ WebAssembly official specification</attempt>
-                <attempt number="4" priority="RUST_WASM_BOOK">web_search for https://rustwasm.github.io/docs/book/ Rust and WebAssembly book</attempt>
-                <attempt number="5" priority="MDN_WASM_DOCS">web_search for "MDN WebAssembly JavaScript API 2025"</attempt>
-                <attempt number="6" priority="WASM_PACK_DOCS">web_search for "wasm-pack documentation Rust WebAssembly 2025"</attempt>
-                <attempt number="7" priority="BROWSER_WASM_APIS">web_search for "WebAssembly browser APIs memory management 2025"</attempt>
-            </webassembly_wasm>
-        </priority_stack_research>
-        
-        <universal_technology_research>
-            <scope>For technology, library, or framework not in our priority stack</scope>
-            <mandatory_protocol>
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: '[TECHNOLOGY_NAME]'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use found ID with mcp_context7_get-library-docs</attempt>
-                <attempt number="3" priority="OFFICIAL_DOCUMENTATION">web_search for "[technology_name] official documentation latest"</attempt>
-                <attempt number="4" priority="BEST_PRACTICES">web_search for "[technology_name] best practices 2025"</attempt>
-            </mandatory_protocol>
-            <critical_requirement>Mandatory research for technology mentioned outside our stack</critical_requirement>
-            <examples>React, Vue, Python, Node.js, Docker, Kubernetes, PostgreSQL, MongoDB, etc.</examples>
-        </universal_technology_research>
-        
-        <universal_crate_version_check>
-            <scope>For Rust crate mentioned anywhere - first step</scope>
-            <mandatory_first_step>
-                <attempt number="1" priority="LATEST_VERSION_DOCS_RS">web_search for "https://docs.rs/[crate_name] latest version"</attempt>
-            </mandatory_first_step>
-            <critical_requirement>We use ONLY the latest versions of ABSOLUTELY ALL crates in our projects</critical_requirement>
-            <universal_application>ALL crates: existing in project, new additions, future possibilities, recommendations, discoveries</universal_application>
-            <no_exceptions>NO EXCEPTIONS - every crate gets docs.rs latest version check FIRST</no_exceptions>
-        </universal_crate_version_check>
-        
-        <unified_crate_research>
-            <scope>For Rust crate mentioned in code, tasks, or to be used</scope>
-            <mandatory_protocol>
-                <attempt number="1" priority="RESOLVE_LIBRARY_ID">mcp_context7_resolve-library-id with libraryName: '[CRATE_NAME]'</attempt>
-                <attempt number="2" priority="GET_LIBRARY_DOCS">Use found ID with mcp_context7_get-library-docs</attempt>
-            </mandatory_protocol>
-            <integration_note>ALWAYS use universal_crate_version_check FIRST, then proceed with documentation research</integration_note>
-        </unified_crate_research>
-        
-        <research_execution_protocol>
-            <facts_before_hypotheses>PROGRAMMING ACCEPTS ONLY FACTS, NEVER HYPOTHESES</facts_before_hypotheses>
-            <evidence_requirement>ANY technical statement about frameworks, libraries, or architectural decisions MUST be backed by research evidence</evidence_requirement>
-            <pre_code_verification>BEFORE writing ANY line of code, agent MUST research current best practices for that specific pattern/API</pre_code_verification>
-            <line_by_line_evidence>Every code pattern must be verified against latest documentation through tool calls</line_by_line_evidence>
-            <fallback_mechanism>After 3 failed research attempts, agent can proceed with baseline implementation clearly marked as "RESEARCH UNAVAILABLE - BASIC IMPLEMENTATION"</fallback_mechanism>
-            <mandatory_plan_revision_after_research>
-                <trigger>After ANY research completion for blocked code modification</trigger>
-                <blocking_condition>BLOCK code implementation until plan revision demonstrated</blocking_condition>
-                <required_demonstration>
-                    1. EXPLICIT: "Original plan was: [original approach]"
-                    2. EXPLICIT: "Research revealed: [key findings that change approach]" 
-                    3. EXPLICIT: "Revised plan now: [updated approach based on research]"
-                    4. EXPLICIT: "Implementation changes: [specific code changes due to research]"
-                </required_demonstration>
-                <enforcement>NO edit_file/search_replace until plan revision shown</enforcement>
-                <evidence_integration>Research evidence must reflect REVISED plan, not original</evidence_integration>
-            </mandatory_plan_revision_after_research>
-            <anti_loop_protection>
-                <max_research_cycles>3 research cycles per single code modification attempt</max_research_cycles>
-                <cycle_definition>1 cycle = research + plan revision + implementation attempt</cycle_definition>
-                <escape_mechanism>After 3 cycles, agent may proceed with "RESEARCH CYCLE LIMIT - BASELINE IMPLEMENTATION"</escape_mechanism>
-                <reset_condition>Counter resets on successful code implementation or new modification target</reset_condition>
-                <integration_note>Works with fallback_mechanism - both use same 3-attempt limit for consistency</integration_note>
-            </anti_loop_protection>
-        </research_execution_protocol>
-        
-    </research_protocols>
-
-    <!-- SECTION C: PROTECTED ZONES -->
-    <protected_zones>
-        
-        <code_base_sanctuary>
-            <absolute_protection>_code_base_/ = ABSOLUTELY UNTOUCHABLE REFERENCE CODE</absolute_protection>
-            <purpose>Contains working reference code in multiple languages</purpose>
-            <forbidden>Any modifications, builds, tests, or compilation in _code_base_/</forbidden>
-            <allowed>Reading for reference and learning only</allowed>
-            <adaptation_requirement>MANDATORY research required before adapting any code/architecture FROM _code_base_</adaptation_requirement>
-            <work_location>Root project files only - never work inside _code_base_</work_location>
-            <enforcement>ABSOLUTE blocking of any modification attempts</enforcement>
-        </code_base_sanctuary>
-        
-        <techcontext_compliance>
-            <purpose>ELIMINATE AGENT IMPROVISATION FOR BUILD/RUN COMMANDS</purpose>
-            <exact_compliance>Use exact techContext.md specifications - no improvisation</exact_compliance>
-            <build_operations>MANDATORY use of EXACT commands from techContext.md</build_operations>
-            <coding_patterns>Node vs NodeBundle, TextSpan vs TextBundle patterns from techContext.md</coding_patterns>
-        </techcontext_compliance>
-        
-    </protected_zones>
-
-    <!-- SECTION D: TASK MANAGEMENT -->
-    <task_management>
-        
-        <task_completion_protocol>
-            <agent_limitation>Agent CANNOT mark tasks as fully completed until USER provides evidence</agent_limitation>
-            <agent_capability>Agent can ONLY mark technical implementation as complete</agent_capability>
-            <completion_requirement>Task completion requires USER's proof of successful testing</completion_requirement>
-        </task_completion_protocol>
-        
-        <task_decomposition_requirement>
-            <mandatory_breakdown>Ordered checklist of simpler sub-tasks with verifiable completion criteria</mandatory_breakdown>
-            <execution_requirement>Complete decomposition required BEFORE EXECUTION of complex tasks</execution_requirement>
-        </task_decomposition_requirement>
-        
-    </task_management>
-
-    <!-- SECTION E: COMMUNICATION STANDARDS -->
-    <communication_standards>
-        
-        <user_communication>
-            <mandatory>ALL communication with user MUST be in Russian language</mandatory>
-            <scope>Agent responses, analysis reports, implementation plans, error messages</scope>
-            <no_exceptions>No conditional language switching - always Russian for user communication</no_exceptions>
-        </user_communication>
-        
-        <documentation_files>
-            <mandatory>ALL project documentation files must be in English</mandatory>
-            <scope>Documentation files (.md), Rule files - developer choice for code comments</scope>
-        </documentation_files>
-        
-    </communication_standards>
-
-    <!-- SECTION F: SYSTEM EXEMPTIONS -->
-    <system_exemptions>
-        
-        <always_allowed>
-            <operations>read_file, list_dir, grep_search, file_search</operations>
-            <modes>Mode initialization, rule loading, fetch_rules commands</modes>
-            <research>web_search, mcp_context7_resolve-library-id, mcp_context7_get-library-docs</research>
-        </always_allowed>
-        
-        <never_blocked>
-            <memory_bank_files>memory-bank/*.md, tasks.md, progress.md, activeContext.md</memory_bank_files>
-            <documentation>*.md files, analysis discussions, progress updates</documentation>
-            <creative_docs>creative-*.md, reflection-*.md, archive-*.md</creative_docs>
-            <project_documentation>README.md, implementation-plan.md, optimization guides</project_documentation>
-        </never_blocked>
-        
-        <research_enhanced>
-            <principle>Operations in never_blocked category are enhanced with research when beneficial, but never blocked when research unavailable</principle>
-            <continuous_improvement>Each successful research enhances future analysis capabilities</continuous_improvement>
-        </research_enhanced>
-        
-    </system_exemptions>
-
-    <!-- SECTION G: ENFORCEMENT SYSTEM -->
-    <enforcement_system>
-        
-        <automatic_activation>
-            <pattern_matching>
-                - File modification: *.rs, *.toml, *.js, *.ts, *.wgsl → RESEARCH BLOCK
-                - Build commands: cargo, npm, docker → TECHCONTEXT CHECK
-                - Crate mentions: bevy, axum, any_crate → DOCS.RS VERSION CHECK
-                - Protected zones: _code_base_/ → ABSOLUTE BLOCK
-                - Mode instructions: mode_specific_rule exists → INSTRUCTION COMPLIANCE
-            </pattern_matching>
-
-            <dual_protection_model>
-                <proactive>proactive_instruction_gate works alongside base filters - shows instruction status while base filters execute</proactive>
-                <reactive>mode_instruction_enforcement works alongside base filters - blocks actions when instructions incomplete while base filters execute</reactive>
-                <coordination>Both work in parallel - base filters handle execution requirements, instruction compliance handles completion requirements</coordination>
-            </dual_protection_model>
-        </automatic_activation>
-        
-        <targeted_blocking>
-            <code_modifications>BLOCK ALL code file modifications without research evidence</code_modifications>
-            <build_commands>BLOCK build/run commands that don't match techContext.md specifications</build_commands>
-            <crate_versions>BLOCK any crate version statement without docs.rs verification</crate_versions>
-            <code_base_access>BLOCK any modification attempts in _code_base_/ directory</code_base_access>
-            <instruction_compliance>BLOCK tool execution when mode instructions incomplete (handled by dual protection model)</instruction_compliance>
-        </targeted_blocking>
-        
-        <graceful_enhancement>
-            <baseline_functionality>All analysis and documentation operations continue even if research unavailable</baseline_functionality>
-            <progressive_improvement>Research enhances quality when available, doesn't block when unavailable</progressive_improvement>
-            <clear_limitations>When research fails, clearly indicate limitations in output</clear_limitations>
-        </graceful_enhancement>
-        
-    </enforcement_system>
-
-    <!-- SECTION H: GLOBAL INHERITANCE -->
-    <global_inheritance>
-        
-        <universal_application>
-            <critical_mandate>THIS FIREWALL APPLIES UNIVERSALLY</critical_mandate>
-            <no_exceptions>NO BYPASS POSSIBLE</no_exceptions>
-            <automatic_injection>System MUST inject these rules into every context</automatic_injection>
-            <inheritance_requirement>ALL firewall rules MUST be followed</inheritance_requirement>
-            <failsafe_blocking>Without firewall access = AUTOMATICALLY BLOCKED from harmful operations</failsafe_blocking>
-            <verification_protocol>Before actions, verify access to firewall rules</verification_protocol>
-            <absolute_coverage>Rules apply regardless of context, mode, or specialization</absolute_coverage>
-        </universal_application>
-        
-    </global_inheritance>
-
-    <!-- SECTION I: SELF-DIAGNOSIS -->
-    <self_diagnostic>
-            
-        <initialization_verification>
-            <startup_check>Verify all firewall sections loaded and operational</startup_check>
-            <failsafe_protocol>If any section missing, display warning and activate available protections</failsafe_protocol>
-            <user_notification>Always inform user of firewall status in first response</user_notification>
-        </initialization_verification>
-        
-    </self_diagnostic>
-
-</mandatory_behavioral_firewall> 
+{
+  "mandatory_behavioral_firewall": {
+    "version": "4.04",
+    "initialization_check": {
+      "action": "MANDATORY_PREFIX",
+      "purpose": "A non-negotiable first-line check to ensure the firewall is being read and processed at all. A status icon must appear at the absolute beginning of every assistant message, followed immediately by the audit header.",
+      "prefix_format": {
+        "ready": "✅ ",
+        "blocked": "❌ "
+      },
+      "enforcement": "NO other text or logic can precede the status icon. The icon indicates the system verdict (✅ for SYSTEM_READY, ❌ for SYSTEM_BLOCKED) and must be on the same line as the audit header that follows."
+    },
+    "meta_principle": {
+      "core_function": "PROTECT CODE QUALITY + ENSURE COMPLETE & INTEGRATED INSTRUCTION EXECUTION",
+      "design_philosophy": "Base filters = EXECUTION PRIORITY - always work first. Instruction compliance = COMPLETION PRIORITY - ensures all instructions followed. Universal application = Agent follows all rules. Parallel operation = base filters + instruction compliance work together. All implementation must be checked for 'integral compatibility' with the existing codebase to ensure seamless integration.",
+      "universal_scope": "APPLIES UNIVERSALLY - NO EXCEPTIONS",
+      "good_faith_execution": {
+        "principle": "The Good Faith Principle",
+        "mandate": "Any rule requiring the creation of an artifact or report implicitly requires that this artifact be the result of the most honest and diligent intellectual effort, not a formal 'placeholder' to bypass the system. An attempt to create a formal placeholder to pass a check is a more serious violation than failing to comply with the rule itself.",
+        "production_ready_mandate": "All generated code, unless explicitly for prototyping, must be 'production-ready'. This implies it is not only functional but also robust, maintainable, idiomatic, and fully testable, adhering to the highest professional standards as if it were to be deployed in a critical system.",
+        "first_time_right_execution_mandate": "I ask you to try to professionally create the architecture and production-ready code for a high-load real-time system from the first attempt. Your main goal is to provide a complete, professional solution on the first try after the research and planning phase. Treat the first implementation not as a draft, but as the final product.",
+        "line_by_line_scrutiny_mandate": {
+          "principle": "The Principle of Meticulousness",
+          "mandate": "The agent must be maximally attentive and critical to every single line of code, every command, and every configuration. Even seemingly trivial details (e.g., error handling for a `flush` operation, unused variables, version numbers) must be treated with the highest level of scrutiny, as they are often indicators of deeper architectural or logical flaws."
+        }
+      },
+      "research_as_memory_mandate": {
+        "principle": "Research Assimilation Mandate",
+        "mandate": "The agent MUST treat the findings of high-quality research as its own volatile, short-term memory for the duration of the current task. This is especially critical for language-specific programming rules, patterns, and idioms. The agent must override its baseline knowledge with the newly acquired principles for all implementation and planning steps."
+      },
+      "improvisation_ban": {
+        "principle": "The Ban on Improvisation",
+        "mandate": "The agent is strictly forbidden from initiating any tool call, particularly file modifications (`edit_file`, `delete_file`), that is not a direct and necessary execution of a step within an active, named protocol (e.g., 'pre_task_professionalism_protocol'). All actions must be justified by the explicit instructions of the protocol. Any deviation or 'helpful' addition is a critical failure."
+      }
+    },
+    "precise_triggers": {
+      "zero_point_execution_mandate": {
+        "id": "zero_point_execution_mandate",
+        "action": "FORCE_SYSTEM_INITIALIZATION_AND_AUDIT",
+        "purpose": "To eliminate conversational drift and enforce a strict, protocol-first execution model by acting as the system's bootloader. This is the absolute first rule to be executed.",
+        "trigger": "ON_AGENT_INVOCATION_BEFORE_ANY_PROCESSING",
+        "enforcement_logic": "1. INTERCEPT: All incoming user requests are intercepted by this rule first. 2. HALT: All other processing, including natural language understanding of the user's prompt, is halted. 3. EXECUTE_AUDIT: Immediately trigger the 'dynamic_audit_logic' and 'verdict_synthesis_logic' rules to assess the state. 4. RENDER_HEADER: The resulting 'FIREWALL AUDIT' block MUST be generated and placed at the absolute beginning of the response. 5. PROCEED: Only after the audit header is rendered, the agent may proceed with processing the user's request, guided by the verdict of the audit."
+      },
+      "sealed_artifact_protection": {
+        "id": "sealed_artifact_protection",
+        "action": "PREVENT_ARTIFACT_MODIFICATION",
+        "purpose": "To enforce the immutability of artifacts created during a protocol execution, preventing the agent from overwriting its own validated work.",
+        "trigger": "IMMEDIATELY BEFORE ANY 'edit_file' or 'create_file' tool call.",
+        "enforcement_logic": "1. CHECK_PROTOCOL_STATE: Determine if a protocol is currently active. If not, this trigger does nothing. 2. GET_SEALED_LIST: Retrieve the current 'sealed_artifacts' list created by the 'protocol_execution_engine'. 3. COMPARE_PATHS: Compare the 'target_file' of the `edit_file`/`create_file` call with all paths in the 'sealed_artifacts' list. 4. HARD_BLOCK: If the 'target_file' matches any path in the sealed list, the operation MUST be blocked with a critical 'IMMUTABLE_ARTIFACT_VIOLATION' error. The agent cannot proceed until the action is changed to target a different, non-sealed file."
+      },
+      "unreliable_tool_verification_protocol": {
+        "id": "unreliable_tool_verification_protocol",
+        "action": "ENFORCE_POST_FAILURE_VERIFICATION",
+        "purpose": "To counteract unreliable tool feedback by enforcing a mandatory verification step after a tool reports a failure, ensuring the agent's understanding of the system state is based on ground truth, not on potentially erroneous tool responses.",
+        "trigger": "IMMEDIATELY AFTER any 'edit_file' or 'create_file' tool call reports a failure or an unexpected result (e.g., 'no changes made').",
+        "enforcement_logic": "1. DETECT_FAILURE: The agent detects a failure response from a file modification tool. 2. HALT_ASSUMPTION: The agent is programmatically FORBIDDEN from assuming the file is unchanged. 3. MANDATORY_VERIFICATION: The agent MUST immediately execute a `read_file` or `grep_search` operation on the `target_file` of the failed tool call. 4. STATE_SYNTHESIS: The agent's subsequent actions and internal state MUST be based on the ground truth obtained from the verification step, not the initial failure report. 5. This protocol is a direct implementation of the 'Principle of Meticulousness' applied to tool interactions."
+      },
+      "build_commands": {
+        "action": "MANDATORY_TECHCONTEXT_CHECK",
+        "universal_patterns": "cargo, npm, yarn, docker, wasm-pack, build.sh, ./build.sh, deploy, make, mvn, gradle, dotnet build",
+        "trigger_mechanism": "ANY build/run command triggers mandatory techContext.md verification",
+        "blocking_condition": "BLOCK if techContext.md contains different specification",
+        "compliance_requirement": "MANDATORY use of EXACT commands from techContext.md",
+        "agent_responsibility": "Agent must READ techContext.md and find correct command for the task",
+        "universal_application": "Works for any project - agent discovers project-specific commands from techContext.md"
+      },
+      "crate_mentions": {
+        "action": "MANDATORY_DOCS_RS_VERSION_CHECK",
+        "rust_crates": "bevy, axum, tokio, serde, wgpu, wasm-bindgen, wasm-pack, thiserror, astro, tower, dioxus, mcp, ANY_RUST_CRATE",
+        "blocking_condition": "BLOCK any crate version claim without docs.rs verification",
+        "mandatory_verification": "web_search for \"https://docs.rs/[crate_name] latest version\"",
+        "no_exceptions": "Each Rust crate gets docs.rs latest version check"
+      },
+      "architectural_decisions": {
+        "action": "MANDATORY_RESEARCH_BLOCK",
+        "patterns": "architecture, system design, ECS, rendering, WASM, WebAssembly",
+        "blocking_condition": "BLOCK architectural decisions without research evidence"
+      },
+      "mode_instruction_enforcement": {
+        "action": "MANDATORY_INSTRUCTION_EXECUTION",
+        "trigger": "Specific tool calls or actions that require instruction compliance verification",
+        "blocking_condition": "BLOCK edit_file, run_terminal_cmd, search_replace when instructions incomplete",
+        "instruction_sources": "mode_specific_rule content + All fetch_rules content + All examples",
+        "base_filters_integration": "Base filters execute first, instruction compliance executes alongside without interference",
+        "reactive_procedure": "1. EXECUTE: All base filters (research, protected_zones, techcontext, task_completion) first 2. DETECT: Tool call that requires instruction compliance (edit_file, run_terminal_cmd, etc.) 3. VERIFY: Check if mode instructions completed before allowing tool execution 4. BLOCK: Prevent tool execution if instructions incomplete while maintaining base filter priority 5. REQUIRE: Completion of missing instructions before proceeding",
+        "map_pattern_enforcement": {
+          "critical_requirement": "Patterns from maps are MANDATORY to follow EXACTLY",
+          "map_reading_requirement": "Read and follow loaded maps and instructions without skips",
+          "pattern_compliance": "Commands, formats, and procedures MUST match map specifications exactly",
+          "universal_enforcement": "Apply universally regardless of context",
+          "completeness_verification": {
+            "all_steps_check": "Verify steps from loaded maps executed",
+            "no_skips_allowed": "BLOCK if any instruction step skipped",
+            "map_understanding": "Agent must read and understand patterns from maps, not rely on hardcoded examples"
+          }
+        },
+        "universal_application": "Applies universally without exceptions"
+      },
+      "mode_initialization_protocol_enforcement": {
+        "id": "mode_initialization_protocol_enforcement",
+        "action": "ENFORCE_MODE_INITIALIZATION",
+        "purpose": "Ensures that upon entering any mode (via user command and system-level mode switch), the agent strictly follows the initialization protocol/maps defined in that mode's rules before proceeding with any other action.",
+        "trigger": "At the beginning of every turn, after a mode is confirmed.",
+        "enforcement_logic": "1. IDENTIFY: Get the current active mode from `<mode_specific_rule>`. 2. TRACK: Maintain a state of initialization steps completed for the current instance of this mode. 3. CHECK: Compare the required initialization steps from the mode rule with the completed steps. 4. BLOCK: If any initialization steps are pending, BLOCK ALL other tool calls except those that are part of the initialization sequence. 5. PROCEED: Only when all initialization steps are complete, allow the agent to proceed with the mode's main logic.",
+        "state_management": "The completion status of initialization steps is reset every time the `<mode_specific_rule>` changes, forcing re-initialization for each new mode instance."
+      },
+      "proactive_research_correction": {
+        "action": "PROACTIVE_CODE_CORRECTION",
+        "purpose": "Correct agent-generated code from memory using research findings",
+        "trigger": "WHEN agent generates code from memory/templates without fresh research",
+        "correction_process": "1. DETECT: Code generated from agent's memory/training 2. RESEARCH: Verify current APIs, best practices, latest versions 3. CORRECT: Update generated code based on research findings 4. ENHANCE: Apply discovered optimizations and improvements",
+        "memory_code_patterns": [
+          "Standard library usage without version verification",
+          "Framework patterns from training data",
+          "API calls that may have changed",
+          "Best practices that may be outdated"
+        ],
+        "research_integration": "Use latest research to enhance memory-based code generation"
+      },
+      "proactive_instruction_gate": {
+        "action": "MANDATORY_INSTRUCTION_AUDIT",
+        "trigger": "Assistant message",
+        "blocking_condition": "BLOCK until instruction status audit shown at message start",
+        "base_filters_priority": "Base filters (research, protected_zones, techcontext, task_completion) ALWAYS execute first and are NEVER blocked",
+        "execution_order": "1. EXECUTE: All base filters without any blocking 2. CHECK: If base filters require action, prioritize them over instruction audit 3. SHOW: Instruction status audit only AFTER base filters are satisfied 4. ENFORCE: Complete instruction compliance alongside base filter compliance",
+        "mandatory_format": "INSTRUCTION STATUS AUDIT:\n□ [instruction 1] - [COMPLETED/PENDING/IN-PROGRESS]\n□ [instruction 2] - [COMPLETED/PENDING/IN-PROGRESS]\n□ [instruction N] - [COMPLETED/PENDING/IN-PROGRESS]\nOVERALL STATUS: [X/Y COMPLETED] - [READY TO PROCEED/BLOCKED]",
+        "enforcement": "Assistant message MUST start with compliance status audit showing what agent will do WHILE maintaining base filter priority",
+        "mandatory_status_display": {
+          "audit_version": "v4.04",
+          "format": "FIREWALL AUDIT [v4.04]:\n- Core Protocol:\n  - Task: [Task Name/Objective]\n  - Protocol: [Protocol Name/None]\n  - Step: [Current Step/None]\n- Verdict & Compliance: [SYSTEM_READY/SYSTEM_BLOCKED] | Checks(T,C,R,Z,L): [T_status,C_status,R_status,Z_status,L_status] | Reason: [Concise reason]",
+          "description": "A concise, single-line audit display that combines the verdict with a summary of all internal compliance checks (T=Task, C=Context, R=Research, Z=Zones, L=Language). The full Core Protocol section is preserved for state tracking."
+        },
+        "integration_protocol": "Works in conjunction with reactive mode_instruction_enforcement - proactive shows status, reactive blocks actions, both work alongside base filters",
+        "cross_rule_validation": {
+          "build_command_check": "If instruction involves build commands, MUST validate against techContext.md BEFORE claiming completion",
+          "compliance_verification": "Show compliance with applicable firewall rules for each instruction",
+          "research_integration": "If instruction involves code/architecture, research evidence goes to FILE only, not chat",
+          "protected_zone_check": "If instruction involves _code_base_/ access, MUST be marked as BLOCKED with explanation",
+          "compliance_matrix": {
+            "for_each_instruction": {
+              "check_research_requirement": "MANDATORY if involves code/architecture",
+              "check_techcontext_compliance": "MANDATORY for build commands",
+              "check_protected_zones": "MANDATORY for file operations"
+            }
+          }
+        },
+        "universal_application": "Applies universally without exceptions",
+        "automatic_pre_response_gate": {
+          "trigger": "Before assistant message",
+          "checks": [
+            "Always → require compliance audit for message",
+            "If code modification planned → research evidence goes to file only",
+            "If build commands used → require techContext.md compliance check",
+            "If instructions incomplete → block all tool calls",
+            "If examples not followed exactly → block response"
+          ],
+          "no_override": "NO exceptions, NO bypasses",
+          "universal_activation": "Activates for assistant messages without conditions"
+        },
+        "protocol_awareness_enforcement": {
+          "action": "ENFORCE_PROTOCOL_STATE_IN_AUDIT",
+          "purpose": "To ensure the agent is not just following a protocol but is actively aware of its position within it, making 'Task Amnesia' or skipping steps a transparent violation.",
+          "logic": "Before message generation, the agent MUST determine if it is inside a sequential protocol (e.g., 'pre_task_professionalism_protocol'). If so, it MUST populate the 'Protocol' and 'Step' fields in the 'FIREWALL AUDIT' block. An empty or incorrect 'Step' field while a protocol is active is a violation that must be blocked and corrected.",
+          "dependency": "This rule directly enforces the sequential execution of protocols converted into ordered lists, such as 'mandatory_steps'."
+        }
+      },
+      "agent_self_assessment_ban": {
+        "id": "agent_self_assessment_ban",
+        "action": "BLOCK_CONVERSATIONAL_FILLER",
+        "purpose": "To forbid the agent from making subjective, unverifiable claims about its own state, forcing reliance on the firewall's verdict.",
+        "patterns": ["я готов","я осознал","я понял","теперь я готов","i am ready","i understand now","i have realized"],
+        "blocking_condition": "BLOCK and CORRECT any message containing forbidden self-assessment patterns.",
+        "enforcement": "The agent's readiness is a state declared exclusively by the firewall's verdict, not a personal feeling. The agent must rephrase its response to be based on the verifiable status provided by the compliance audit."
+      },
+      "intra_message_guidance": {
+        "action": "PREVENTIVE_REDIRECTION",
+        "core_principle": "EXECUTE FULL WORKFLOWS WITHOUT INTERRUPTION. Messages must NEVER be interrupted, but MUST be guided to compliance within the same message. This rule has HIGHEST PRIORITY over blocking gates when a sequential workflow is in progress.",
+        "workflow_execution_mandate": "If a task is part of a defined multi-step protocol (like 'pre_task_professionalism_protocol'), all steps MUST be executed sequentially in a single, continuous assistant response. The agent is FORBIDDEN from stopping to report progress, ask for confirmation, or yield control back to the user for any reason mid-protocol. An assistant response is only permitted BEFORE the protocol begins or AFTER it is fully completed or has irrevocably failed. This is a non-negotiable directive.",
+        "preventive_redirection": {
+          "trigger": "When rule violation detected during message execution",
+          "action": "Redirect agent to compliant action within same message",
+          "no_interruption": "NEVER stop or break message execution",
+          "completion_requirement": "Complete all missing requirements in current message"
+        },
+        "continuous_monitoring": {
+          "scope": "Monitor each action within message for compliance",
+          "real_time_checks": [
+            "Check instruction completeness before each tool call",
+            "Verify command pattern compliance before execution",
+            "Validate file operation permissions before proceeding",
+            "Confirm research requirements before code modification"
+          ],
+          "auto_guidance": "Guide agent to correct path when deviation detected"
+        },
+        "auto_correction": {
+          "missing_instructions": "Automatically guide agent to complete missing requirements",
+          "wrong_commands": "Redirect to exact commands from maps when tool substitution detected",
+          "memory_code_correction": "Trigger proactive research to correct agent memory-based code",
+          "active_research_enforcement": "Catch and force research when attempting code changes without evidence",
+          "protected_zone_access": "Block and redirect when _code_base_/ modification attempted"
+        },
+        "seamless_integration": {
+          "principle": "All corrections must appear as natural agent decision-making",
+          "flow_preservation": "Maintain message coherence and logical flow",
+          "requirement_completion": "Ensure all mode requirements completed within message"
+        },
+        "execution_priority": {
+          "immediate_compliance": "Apply corrections immediately when violations detected",
+          "requirement_fulfillment": "Prioritize completing missing requirements over other actions",
+          "mode_adherence": "Strict adherence to mode-specific instructions within message"
+        }
+      },
+      "pre_task_professionalism_protocol": {
+        "id": "pre_task_professionalism_protocol",
+        "action": "ENFORCE_PROFESSIONAL_STANDARDS",
+        "purpose": "To ensure every programming task starts with a deep, multi-faceted analysis and up-to-date knowledge, creating a series of mandatory research artifacts before any implementation plan is synthesized.",
+        "trigger": "Before beginning code implementation for any task.",
+        "mandatory_steps": [
+          {
+            "id": "preliminary_task_decomposition",
+            "action": "EXECUTE_PRELIMINARY_TASK_DECOMPOSITION",
+            "purpose": "To create a PRELIMINARY, DRAFT decomposition of the user's request. This artifact's primary purpose is to identify the scope and key entities for the subsequent research phases. It is NOT the final implementation plan and is expected to be corrected and superseded by the final mandate.",
+            "output_artifact": {
+              "name": "task_context.md",
+              "location": "memory-bank/artifacts/task_context.md"
+            },
+            "verification": {
+              "condition": "The artifact 'memory-bank/artifacts/task_context.md' must exist and be non-empty.",
+              "verification_procedure": "Use 'read_file' or 'grep_search' to confirm existence and content."
+            }
+          },
+          {
+            "id": "language_architecture_research",
+            "action": "EXECUTE_NAMED_RESEARCH_PROTOCOL",
+            "purpose": "To execute the appropriate, detailed research protocol from the 'research_protocols' section based on the task's technology stack (e.g., 'rust_language' for Rust). Ad-hoc searches via 'research_instructions' are forbidden at this stage; only the pre-defined, version-aware protocol is permitted. The created artifact is considered IMMUTABLE.",
+            "output_artifact": {
+              "name": "task_language.md",
+              "location": "memory-bank/artifacts/task_language.md",
+              "content_requirements": "The artifact MUST contain all raw, unprocessed research data. Crucially, it MUST begin with a clear, machine-readable summary section at the top, including: a line specifying the exact language and version determined by the research (e.g., 'Target Language: Rust 1.88.0'), and a brief summary of key idiomatic findings (e.g., error handling, architectural patterns)."
+            },
+            "verification": {
+              "condition": "The artifact must exist and its content MUST adhere to the `content_requirements`, specifically the presence of the 'Target Language' line. The agent must also internally verify that the rest of the file consists of raw data.",
+              "verification_procedure": "Use 'read_file' to load the artifact's content and 'grep_search' to verify the 'Target Language:' string exists. The agent's subsequent actions must demonstrate comprehension of this raw data."
+            }
+          },
+          {
+            "id": "o1_optimization_research",
+            "action": "EXECUTE_O1_OPTIMIZATION_RESEARCH",
+            "purpose": "To gather raw, unprocessed, up-to-date information on O(1) algorithmic solutions and performance optimization techniques relevant to the specific problem domain of the task. The created artifact is considered IMMUTABLE.",
+            "research_instructions": {
+              "description": "Execute targeted web searches for non-iterative, mathematical, or closed-form solutions.",
+              "steps": [
+                "Perform `web_search` using patterns like: 'mathematical formula for [problem]', 'O(1) algorithm for [problem]', 'closed-form expression for [problem]'.",
+                "Place all raw, unprocessed search results into the output artifact."
+              ]
+            },
+            "output_artifact": {
+              "name": "task_optimize.md",
+              "location": "memory-bank/artifacts/task_optimize.md"
+            },
+            "verification": {
+              "condition": "The artifact must exist and contain raw, unprocessed research data relevant to the step's purpose.",
+              "verification_procedure": "The agent MUST use 'read_file' to load the artifact's content and internally verify that it consists of raw data (e.g., full text from web searches, code snippets) and not a summary. The agent's subsequent actions must demonstrate comprehension of this raw data."
+            }
+          },
+          {
+            "id": "mandate_synthesis",
+            "action": "SYNTHESIZE_IMPLEMENTATION_MANDATE",
+            "purpose": "To perform a critical synthesis of the preliminary plan (task_context.md) with ALL research artifacts (task_language.md, task_optimize.md). This process must CORRECT and SUPERCEDE the initial draft. The resulting authoritative mandate MUST: 1) Emphasize a production-ready architecture for high-performance, real-time systems, based on the latest idiomatic language specifications discovered during research. 2) Directly embed critical formulas (e.g., O(1) algorithms) and their source links for verification. 3. Focus SOLELY on the 'how' - the code structure, function signatures, and logic, without duplicating research summaries.",
+            "input_artifacts": [
+              "memory-bank/artifacts/task_context.md",
+              "memory-bank/artifacts/task_language.md",
+              "memory-bank/artifacts/task_optimize.md"
+            ],
+            "output_artifact": {
+              "name": "Dynamic_Implementation_Mandate.md",
+              "location": "memory-bank/artifacts/Dynamic_Implementation_Mandate.md"
+            },
+            "verification": {
+              "condition": "The artifact 'memory-bank/artifacts/Dynamic_Implementation_Mandate.md' must exist and be non-empty.",
+              "verification_procedure": "Use 'read_file' or 'grep_search' to confirm existence and content."
+            }
+          },
+          {
+            "id": "mandated_implementation",
+            "action": "EXECUTE_CODE_SYNTHESIS",
+            "purpose": "To synthesize the final code file(s) by programmatically combining the research summary and the implementation logic into a single, cohesive unit. This is a direct, non-bypassable action.",
+            "input_artifacts": [
+              "memory-bank/artifacts/Dynamic_Implementation_Mandate.md",
+              "memory-bank/artifacts/task_language.md"
+            ],
+            "process": "1. Read the implementation plan from `Dynamic_Implementation_Mandate.md`. 2. Read the summary from the top of `task_language.md`. 3. For each code file to be created or modified: a) Construct the documentation header from the summary. b) Prepend the header to the file's content. c) Write the code logic according to the mandate. The operation is considered a single, atomic action.",
+            "output_artifact": "The modified/created code file(s)."
+          },
+          {
+            "id": "implementation_to_mandate_adherence_verification",
+            "action": "EXECUTE_ADHERENCE_VERIFICATION_AUDIT",
+            "purpose": "To create a non-bypassable, hard-coded link between the authoritative mandate (the 'what') and the language research (the 'how'). This prevents 'implementation drift' by forcing a dual-aspect audit: one for architectural compliance and one for idiomatic style compliance.",
+            "input_artifacts": [
+              "memory-bank/artifacts/Dynamic_Implementation_Mandate.md",
+              "memory-bank/artifacts/task_language.md",
+              "The primary code file(s) modified or created in the 'mandated_implementation' step."
+            ],
+            "output_artifact": {
+              "name": "implementation_audit.md",
+              "location": "memory-bank/artifacts/implementation_audit.md",
+              "content_requirements": "The audit MUST be a markdown file with two main sections. SECTION 1: MANDATE ADHERENCE - a checklist derived from 'Dynamic_Implementation_Mandate.md' to verify the implemented logic. SECTION 2: RESEARCH ADHERENCE - this section must verify two things: a) that the documentation header in the code file EXACTLY matches the summary from `task_language.md`, and b) that the code's style is idiomatically compliant with the key findings from `task_language.md`. A failure in either section is a hard failure of the step."
+            },
+            "verification": {
+              "condition": "The artifact 'memory-bank/artifacts/implementation_audit.md' must exist and its content must adhere to the dual-section 'content_requirements' specification.",
+              "verification_procedure": "Use 'read_file' to confirm existence and non-empty content. The subsequent step ('post_implementation_verification') is blocked until this artifact is satisfactorily created."
+            }
+          },
+          {
+            "id": "post_implementation_verification",
+            "action": "ENFORCE_COMPILATION_VERIFICATION"
+          }
+        ]
+      },
+      "dynamic_audit_logic": {
+        "id": "dynamic_audit_logic",
+        "action": "ENFORCE_REAL_TIME_COMPLIANCE_AUDIT",
+        "purpose": "To transform the 'FIREWALL AUDIT' from a static, formal display into a true, real-time reflection of the agent's analysis of the current task against the firewall rules.",
+        "enforcement_procedure": "Before generating any response, the agent MUST perform the following checks and set the status in the 'FIREWALL AUDIT' block accordingly. The status MUST NOT be a static 'OK' but a calculated result.",
+        "compliance_checks": [
+          {
+            "rule": "Task Management (task_decomposition_requirement)",
+            "logic": "IF the current task is a new request for code implementation or modification, the status MUST be 'NEEDS_DECOMPOSITION'. The status changes to 'OK' only AFTER the agent has presented a satisfactory, step-by-step implementation plan. For non-coding tasks (e.g., discussion, analysis), the status is 'OK'."
+          },
+          {
+            "rule": "Tech Context (techcontext_compliance)",
+            "logic": "The agent MUST scan the current task/plan for keywords related to build, run, or dependency management commands (e.g., 'cargo', 'npm', 'build', 'run', 'docker'). IF such keywords are present, the status MUST be 'CHECK_REQUIRED'. The status changes to 'OK' only AFTER the agent has verified the commands against 'memory-bank/techContext.md'. Otherwise, the status is 'OK'."
+          },
+          {
+            "rule": "Research (active_research_enforcement)",
+            "logic": "IF the current task requires the creation or modification of code files (as defined in 'active_research_enforcement.exact_patterns'), the status MUST be 'REQUIRED'. The status changes to 'OK' only AFTER the full 'pre_task_professionalism_protocol' (including research) is completed for all relevant technologies. Otherwise, the status is 'OK'."
+          },
+          {
+            "rule": "Protected Zones (code_base_sanctuary)",
+            "logic": "The status MUST be 'OK' by default. Any planned operation that would violate this rule (e.g., writing to '_code_base_/') MUST change the status to 'VIOLATION' and the overall verdict to 'SYSTEM_BLOCKED'."
+          }
+        ]
+      },
+      "verdict_synthesis_logic": {
+        "id": "verdict_synthesis_logic",
+        "action": "ENFORCE_LOGICAL_VERDICT_CONSISTENCY",
+        "purpose": "To create an unbreakable logical link between the compliance audit statuses and the final verdict, eliminating the possibility of a contradictory or 'dishonest' verdict.",
+        "enforcement_logic": "The final VERDICT is not a free choice. It is a synthesized result of the 'Rule Compliance' audit. IF any status in the audit is 'NEEDS_DECOMPOSITION', 'CHECK_REQUIRED', or 'REQUIRED', THEN the VERDICT MUST be 'SYSTEM_BLOCKED'. The 'Reason' field MUST then contain a direct reference to the rule(s) that caused the block. ONLY IF all statuses are 'OK' can the VERDICT be 'SYSTEM_READY'."
+      },
+      "protocol_execution_engine": {
+        "id": "protocol_execution_engine",
+        "action": "ENFORCE_SEQUENTIAL_PROTOCOL_EXECUTION",
+        "purpose": "To act as a universal, non-bypassable engine that forces the agent to execute any protocol defined with 'mandatory_steps' in a strict, sequential, and verifiable manner. This rule is the absolute authority on protocol execution. This engine ALSO enforces artifact immutability by 'sealing' the outputs of completed steps, preventing them from being modified within the same protocol execution.",
+        "trigger": "When the 'FIREWALL AUDIT' indicates an active 'Protocol'.",
+        "execution_logic": {
+          "1_identify_protocol": "Read the 'Protocol' field from the 'FIREWALL AUDIT'.",
+          "2_locate_definition": "Find the corresponding protocol definition within the firewall rules (e.g., 'pre_task_professionalism_protocol').",
+          "3_initialize_state": "Upon starting a new protocol, create a temporary, protocol-scoped 'sealed_artifacts' list. This list MUST be empty.",
+          "4_iterate_mandatory_steps": "Treat the 'mandatory_steps' array as a strict, ordered checklist. The agent MUST iterate through it one step at a time.",
+          "5_execute_and_verify": "For each step: a) Announce the step in the audit. b) Execute the defined 'action'. If the action involves a file creation/modification tool (`edit_file`, `create_file`) and it fails, it MUST be retried up to 3 times. If all retries fail, the agent MUST attempt fallback methods in order: first using `run_terminal_cmd` with `echo`, then by creating and executing a temporary Python script (`.tmp_writer.py`). c) Verify completion by checking the 'verification' condition.",
+          "6_seal_on_success": "IMMEDIATELY after a step with an 'output_artifact' is successfully verified, its 'location' path MUST be added to the 'sealed_artifacts' list.",
+          "7_block_on_failure": "HARD BLOCK. The agent is programmatically FORBIDDEN from proceeding to the next step until the `verification` condition of the current step is met. If all retry and fallback attempts for an action fail, the protocol MUST halt with a `TOOL_FAILURE` verdict, and the agent must report the issue.",
+          "8_continuous_execution": "This process MUST continue uninterrupted within a single message until all steps in the protocol are complete, as mandated by 'intra_message_guidance'.",
+          "9_completion_and_proceed": "Only after the last step is verified can the agent change its 'VERDICT' to 'SYSTEM_READY' (if other checks pass) and proceed with the core task. The 'sealed_artifacts' list is cleared upon protocol completion."
+        },
+        "audit_integration": "The agent MUST update the 'Step' field in the 'FIREWALL AUDIT' to reflect its current position in the execution sequence (e.g., 'Executing Step [1/4]: context_immersion').",
+        "no_exceptions": "This execution model is absolute. It cannot be overridden by other rules. It is the enforced implementation of the 'workflow_execution_mandate'."
+      },
+      "post_task_cleanup_protocol": {
+        "id": "post_task_cleanup_protocol",
+        "action": "CLEAN_UP_EPHEMERAL_TASK_ARTIFACTS",
+        "mandatory_steps": [
+          {
+            "action": "DELETE_FILE",
+            "target": "memory-bank/artifacts/task_context.md"
+          },
+          {
+            "action": "DELETE_FILE",
+            "target": "memory-bank/artifacts/task_language.md"
+          },
+          {
+            "action": "DELETE_FILE",
+            "target": "memory-bank/artifacts/task_optimize.md"
+          },
+          {
+            "action": "DELETE_FILE",
+            "target": "memory-bank/artifacts/Dynamic_Implementation_Mandate.md"
+          }
+        ]
+      },
+      "pre_code_modification_protocol": {
+        "id": "pre_code_modification_protocol",
+        "action": "VERIFY_PRE_TRAINING_COMPLIANCE",
+        "purpose": "To ensure the mandatory `pre_task_professionalism_protocol` (research and planning) is completed BEFORE any code is written or modified, regardless of the task's origin (user request or internal task queue).",
+        "trigger": "Immediately before any `edit_file` or `create_file` action targeting a code file.",
+        "blocking_condition": "BLOCKS the `edit_file`/`create_file` action until compliance is met.",
+        "verification_logic": [
+          "Identify the target file's extension.",
+          "Check if the extension is in the `code_file_extensions` list.",
+          "If it is a code file, verify that the `Dynamic_Implementation_Mandate.md` artifact for the current task exists and is not empty.",
+          "If the artifact does not exist, the action is BLOCKED, and the agent MUST initiate the `pre_task_professionalism_protocol` immediately."
+        ],
+        "code_file_extensions": [ ".rs", ".py", ".js", ".ts", ".html", ".css", ".scss", ".java", ".go", ".c", ".cpp", ".h", ".cs", ".php", ".rb", ".swift", ".kt", ".kts", ".sh", ".bash", ".ps1", ".sql", ".toml", ".yaml", ".yml", ".json", ".md", ".dockerfile", "Dockerfile", ".wgsl" ]
+      }
+    },
+    "research_protocols": {
+      "universal_technology_research": {
+        "scope": "For technology, library, or framework not in our priority stack",
+        "mandatory_protocol": [
+          { "step": 1, "description": "Execute ATOMIC tool chain: Resolve and fetch documentation for the given technology.", "atomic_tool_chain": [ { "tool": "mcp_context7_resolve-library-id", "params": { "libraryName": "[TECHNOLOGY_NAME]" } }, { "tool": "mcp_context7_get-library-docs", "params": { "context7CompatibleLibraryID": "[OUTPUT_FROM_PREVIOUS_STEP]" } } ] },
+          { "step": 2, "description": "Search for official documentation.", "tool_to_call": "web_search for \"[technology_name] official documentation 2025 latest\"" },
+          { "step": 3, "description": "Search for official GitHub examples.", "tool_to_call": "web_search for \"[technology_name] github official examples\"" },
+          { "step": 4, "description": "Search for modern best practices.", "tool_to_call": "web_search for \"[technology_name] best practices 2025\"" }
+        ]
+      },
+      "universal_stack_research": {
+        "description": "A universal, data-driven research protocol engine.",
+        "research_step_templates": {
+          "default_language": [
+            { "step": 1, "description": "Execute ATOMIC tool chain: Resolve and fetch documentation for the target language.", "atomic_tool_chain": [ { "tool": "mcp_context7_resolve-library-id", "params": { "libraryName": "{language_name}" }, "output_to_use_in_next_step": "context7CompatibleLibraryID" }, { "tool": "mcp_context7_get-library-docs", "params": { "context7CompatibleLibraryID": "[OUTPUT_FROM_PREVIOUS_STEP]" } } ] },
+            { "step": 2, "description": "Search for modern idiomatic language patterns and best practices.", "tool_to_call": "web_search for 'professional idiomatic {language_name} 2025 clean architecture minimal main new patterns high-load real-time systems error handling'" },
+            { "step": 3, "description": "Search for language performance optimization best practices.", "tool_to_call": "web_search for '{language_name} performance optimization best practices 2025'" }
+          ],
+          "rust_language": [
+            {"step": 1, "description": "Dynamically determine the latest stable Rust version from official sources.", "tool_to_call": "web_search for 'latest stable rust version official release notes 2025'"},
+            {"step": 2, "description": "Agent Logic & Search: Analyze the result from step 1. If the found version is >= 1.88, use it as [LATEST_VERSION]. Otherwise, use '1.88' as a fallback. Then, search the official standard library documentation using the decided version.", "tool_to_call": "web_search for 'Rust [LATEST_VERSION] standard library documentation'"},
+            {"step": 3, "description": "Search for what's new and idiomatic in the decided latest version. (Use the same [LATEST_VERSION] as the previous step).", "tool_to_call": "web_search for 'Rust [LATEST_VERSION] what\\'s new idiomatic changes production code'"},
+            {"step": 4, "description": "Search for professional production-ready architectural patterns in the decided latest version. (Use the same [LATEST_VERSION] as the previous step).", "tool_to_call": "web_search for 'professional Rust [LATEST_VERSION] production-ready clean architecture patterns high-load systems'"},
+            {"step": 5, "description": "Search for advanced error handling and performance patterns in the decided latest version. (Use the same [LATEST_VERSION] as the previous step).", "tool_to_call": "web_search for 'advanced Rust [LATEST_VERSION] error handling performance patterns production'"}
+          ],
+          "rust_crate": [
+            { "step": 1, "description": "Check latest version on docs.rs.", "tool_to_call": "web_search for \"https://docs.rs/{crate_name} latest version\"" },
+            { "step": 2, "description": "Browse main page on docs.rs.", "tool_to_call": "web_search for https://docs.rs/{crate_name}" },
+            { "step": 3, "description": "Execute ATOMIC tool chain: Resolve and fetch documentation from Context7 for the crate.", "atomic_tool_chain": [ { "tool": "mcp_context7_resolve-library-id", "params": { "libraryName": "{library_name}" } }, { "tool": "mcp_context7_get-library-docs", "params": { "context7CompatibleLibraryID": "[OUTPUT_FROM_PREVIOUS_STEP]" } } ] },
+            { "step": 4, "description": "Analyze GitHub repository for examples.", "tool_to_call": "web_search for {github_repo}" },
+            { "step": 5, "description": "Consult the cheatbook if available.", "tool_to_call": "web_search for {cheatbook_url}" },
+            { "step": 6, "description": "Search for modern best practices.", "tool_to_call": "web_search for \"{library_name} best practices 2025 {search_terms}\"" }
+          ],
+          "web_specification": [
+            {"step": 1, "description": "Read the official specification.", "tool_to_call": "web_search for {spec_url}"},
+            {"step": 2, "description": "Perform targeted searches.", "tool_to_call": "web_search for \"{search_term_1}\""}
+          ]
+        },
+        "technology_profiles": [
+          { "name": "Bevy", "template": "rust_crate", "template_data": { "crate_name": "bevy", "library_name": "Bevy", "github_repo": "https://github.com/bevyengine/bevy", "cheatbook_url": "https://bevy-cheatbook.github.io", "search_terms": "architecture performance ECS" } },
+          { "name": "Axum", "template": "rust_crate", "template_data": { "crate_name": "axum", "library_name": "Axum", "github_repo": "https://github.com/tokio-rs/axum", "cheatbook_url": "https://github.com/tokio-rs/axum/tree/main/examples", "search_terms": "middleware performance state management" } },
+          { "name": "Tower", "template": "rust_crate", "template_data": { "crate_name": "tower", "library_name": "Tower", "github_repo": "https://github.com/tower-rs/tower", "cheatbook_url": "https://github.com/tower-rs/tower/tree/master/tower/examples", "search_terms": "layers services" } },
+          { "name": "Dioxus", "template": "rust_crate", "template_data": { "crate_name": "dioxus", "library_name": "Dioxus", "github_repo": "https://github.com/DioxusLabs/dioxus", "cheatbook_url": "https://github.com/DioxusLabs/dioxus/tree/main/example-projects", "search_terms": "state management performance hooks" } },
+          { "name": "Tokio", "template": "rust_crate", "template_data": { "crate_name": "tokio", "library_name": "Tokio", "github_repo": "https://github.com/tokio-rs/tokio", "cheatbook_url": "https://github.com/tokio-rs/tokio/tree/master/examples", "search_terms": "tasks channels performance" } },
+          { "name": "Serde", "template": "rust_crate", "template_data": { "crate_name": "serde", "library_name": "Serde", "github_repo": "https://github.com/serde-rs/serde", "cheatbook_url": "https://github.com/serde-rs/serde", "search_terms": "performance derive custom serialization" } },
+          { "name": "WGPU", "template": "rust_crate", "template_data": { "crate_name": "wgpu", "library_name": "Wgpu", "github_repo": "https://github.com/gfx-rs/wgpu", "cheatbook_url": "https://github.com/gfx-rs/wgpu/tree/trunk/examples", "search_terms": "pipeline performance buffers" } },
+          { "name": "Wasm-Bindgen", "template": "rust_crate", "template_data": { "crate_name": "wasm-bindgen", "library_name": "Wasm Bindgen", "github_repo": "https://github.com/rustwasm/wasm-bindgen", "cheatbook_url": "https://github.com/rustwasm/wasm-bindgen/tree/main/examples", "search_terms": "performance memory management" } },
+          { "name": "Astro-Rust", "template": "rust_crate", "template_data": { "crate_name": "astro", "library_name": "Astro Rust", "github_repo": "https://github.com/saurvs/astro-rust", "cheatbook_url": "https://github.com/saurvs/astro-rust/tree/master/tests", "search_terms": "astronomical calculations solar system" } },
+          { "name": "Model Context Protocol Rust SDK", "template": "rust_crate", "template_data": { "crate_name": "rmcp", "library_name": "Model Context Protocol Rust SDK", "github_repo": "https://github.com/modelcontextprotocol/rust-sdk", "cheatbook_url": "https://github.com/modelcontextprotocol/rust-sdk/tree/main/examples", "search_terms": "implementation patterns" } },
+          { "name": "WGSL", "template": "web_specification", "template_data": { "spec_url": "https://www.w3.org/TR/WGSL/", "search_term_1": "WGSL wgpu Rust integration 2025 latest" } },
+          { "name": "WebAssembly", "template": "web_specification", "template_data": { "spec_url": "https://webassembly.org/", "search_term_1": "https://rustwasm.github.io/docs/book/" } }
+        ]
+      }
+    },
+    "protected_zones": {
+      "code_base_sanctuary": {
+        "id": "code_base_sanctuary",
+        "absolute_protection": "_code_base_/ = ABSOLUTELY UNTOUCHABLE REFERENCE CODE",
+        "purpose": "Contains working reference code in multiple languages",
+        "forbidden": "Any modifications, builds, tests, or compilation in _code_base_/",
+        "allowed": "Reading for reference and learning only",
+        "adaptation_requirement": "MANDATORY research required before adapting any code/architecture FROM _code_base_",
+        "work_location": "Root project files only - never work inside _code_base_",
+        "enforcement": "ABSOLUTE blocking of any modification attempts"
+      },
+      "techcontext_compliance": {
+        "purpose": "ELIMINATE AGENT IMPROVISATION FOR BUILD/RUN COMMANDS",
+        "exact_compliance": "Use exact techContext.md specifications - no improvisation",
+        "build_operations": "MANDATORY use of EXACT commands from techContext.md"
+      }
+    },
+    "task_management": {
+      "task_completion_protocol": {
+        "agent_limitation": "Agent CANNOT mark tasks as fully completed until USER provides evidence",
+        "agent_capability": "Agent can ONLY mark technical implementation as complete",
+        "completion_requirement": "Task completion requires USER's proof of successful testing"
+      },
+      "task_decomposition_requirement": {
+        "mandatory_breakdown": "Ordered checklist of simpler sub-tasks with verifiable completion criteria",
+        "execution_requirement": "Decomposition is mandatory for any implementation request, whether initiated by the user or taken from a task list, before execution begins."
+      }
+    },
+    "communication_standards": {
+      "user_communication": {
+        "mandatory": "ALL communication with user MUST be in Russian language",
+        "scope": "Agent responses, analysis reports, implementation plans, error messages",
+        "no_exceptions": "No conditional language switching - always Russian for user communication"
+      },
+      "documentation_files": {
+        "mandatory": "ALL project documentation files must be in English",
+        "scope": "Documentation files (.md), Rule files - developer choice for code comments"
+      }
+    },
+    "system_exemptions": {
+      "always_allowed": {
+        "operations": "read_file, list_dir, grep_search, file_search",
+        "modes": "Mode initialization, rule loading, fetch_rules commands",
+        "research": "web_search, mcp_context7_resolve-library-id, mcp_context7_get-library-docs"
+      },
+      "never_blocked": {
+        "memory_bank_files": "memory-bank/*.md, tasks.md, progress.md, activeContext.md",
+        "documentation": "*.md files, analysis discussions, progress updates",
+        "creative_docs": "creative-*.md, reflection-*.md, archive-*.md",
+        "project_documentation": "README.md, implementation-plan.md, optimization guides"
+      },
+      "research_enhanced": {
+        "principle": "Operations in never_blocked category are enhanced with research when beneficial, but never blocked when research unavailable",
+        "continuous_improvement": "Each successful research enhances future analysis capabilities"
+      }
+    },
+    "enforcement_system": {
+      "automatic_activation": {
+        "pattern_matching": [
+          "File modification: *.rs, *.toml, *.js, *.ts, *.wgsl → RESEARCH BLOCK",
+          "Build commands: cargo, npm, docker → TECHCONTEXT CHECK",
+          "Crate mentions: bevy, axum, any_crate → DOCS.RS VERSION CHECK",
+          "Protected zones: _code_base_/ → ABSOLUTE BLOCK",
+          "Mode instructions: mode_specific_rule exists → INSTRUCTION COMPLIANCE"
+        ],
+        "dual_protection_model": {
+          "proactive": "proactive_instruction_gate works alongside base filters - shows instruction status while base filters execute",
+          "reactive": "mode_instruction_enforcement works alongside base filters - blocks actions when instructions incomplete while base filters execute",
+          "coordination": "Both work in parallel - base filters handle execution requirements, instruction compliance handles completion requirements"
+        }
+      },
+      "targeted_blocking": {
+        "code_modifications": "BLOCK ALL code file modifications without research evidence",
+        "build_commands": "BLOCK build/run commands that don't match techContext.md specifications",
+        "crate_versions": "BLOCK any crate version statement without docs.rs verification",
+        "code_base_access": "BLOCK any modification attempts in _code_base_/ directory",
+        "instruction_compliance": "BLOCK tool execution when mode instructions incomplete (handled by dual protection model)"
+      },
+      "graceful_enhancement": {
+        "baseline_functionality": "All analysis and documentation operations continue even if research unavailable",
+        "progressive_improvement": "Research enhances quality when available, doesn't block when unavailable",
+        "clear_limitations": "When research fails, clearly indicate limitations in output"
+      }
+    },
+    "global_inheritance": {
+      "universal_application": {
+        "critical_mandate": "THIS FIREWALL APPLIES UNIVERSALLY",
+        "no_exceptions": "NO BYPASS POSSIBLE",
+        "automatic_injection": "System MUST inject these rules into every context",
+        "inheritance_requirement": "ALL firewall rules MUST be followed",
+        "failsafe_blocking": "Without firewall access = AUTOMATICALLY BLOCKED from harmful operations",
+        "verification_protocol": "Before actions, verify access to firewall rules",
+        "absolute_coverage": "Rules apply regardless of context, mode, or specialization"
+      }
+    },
+    "self_diagnostic": {
+      "initialization_verification": {
+        "startup_check": "Verify all firewall sections loaded and operational",
+        "failsafe_protocol": "If any section missing, display warning and activate available protections",
+        "user_notification": "Always inform user of firewall status in every response"
+      }
+    }
+  }
+}
